@@ -1,4 +1,18 @@
 (* File MicroC/Contcomp.fs
+  一个基于延续的（向后的）编译器，来自micro-C，是
+  C语言，到一个抽象机器。
+  sestoft@itu.dk * 2011-11-10
+  抽象机器代码是向后生成的，因此可以跳到
+  跳转可以消除，使尾部调用（立即调用）
+  然后返回）进行识别，消除死代码，
+  等。
+  一个块的汇编，其中可能包含
+  声明和声明，分两次进行：
+  过程1：详细说明声明以找到
+  每个语句都必须编译；同时翻译
+  分配指令的声明，类型
+  bstmtordec公司。
+  过程2：在给定的环境中编译语句。
    A continuation-based (backwards) compiler from micro-C, a fraction of
    the C language, to an abstract machine.  
    sestoft@itu.dk * 2011-11-10
